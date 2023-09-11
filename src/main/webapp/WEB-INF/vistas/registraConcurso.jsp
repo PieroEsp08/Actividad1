@@ -15,7 +15,7 @@
 <body>
 
 <div class="container">
-<h1>Registra Alumno</h1>
+<h1>Registra Concurso</h1>
 
 	<form id="id_form">
 	<div class="row" style="margin-top: 5%">
@@ -28,35 +28,35 @@
 				</div>
 			</div>
 			<div class="form-group  col-sm-6">
-				<div class="col-sm-3">
-					<label class="control-label" for="id_dni">DNI</label>
+				<div class="col-sm-4">
+					<label class="control-label" for="id_fecinicio">Fecha Inicio</label>
 				</div>
 				<div class="col-sm-6">
-					<input class="form-control" type="text" id="id_dni" name="dni" placeholder="Ingrese el dni" maxlength="8">
+					<input class="form-control" type="date" id="id_fecinicio" name="fechaInicio" placeholder="Ingrese Fecha Inicio" maxlength="100">
 		 		</div>
 			</div>
 		</div>
 		<div class="row" style="margin-top: 2%">
 			<div class="form-group col-sm-6">
 				<div class="col-sm-3">
-					<label class="control-label" for="id_correo">Correo</label>
+					<label class="control-label" for="id_fecfin">Fecha Fin</label>
 				</div>
 				<div class="col-sm-6">
-					<input class="form-control" type="text" id="id_correo" name="correo" placeholder="Ingrese el correo" maxlength="100">
+					<input class="form-control" type="date" id="id_fecfin" name="fechaFin" placeholder="Ingrese Fecha Fin" maxlength="100">
 				</div>
 			</div>
 			<div class="form-group  col-sm-6">
 				<div class="col-sm-4">
-					<label class="control-label" for="id_fecha">Fecha de Nacimiento</label>
+					<label class="control-label" for="id_estado">Estado</label>
 				</div>
 				<div class="col-sm-6">
-					<input class="form-control" type="date" id="id_fecha" name="fechaNacimiento" placeholder="Ingrese la fecha" maxlength="100">
+					<input class="form-control" type="text" id="id_estado" name="estado" placeholder="Ingrese Estado" maxlength="100">
 		 		</div>
 			</div>
 		</div>
 		
 		<div class="row" style="margin-top: 5%">	
-				<button id="id_registrar" type="button" class="btn btn-primary" >Crea Alumno</button>
+				<button id="id_registrar" type="button" class="btn btn-primary" >Crea Concurso</button>
 		</div> 
 		
 	</form>
@@ -74,7 +74,7 @@ $("#id_registrar").click(function (){
 	if (validator.isValid()){
 		$.ajax({
     		type: "POST",
-            url: "registraAlumno", 
+            url: "registraConcurso", 
             data: $('#id_form').serialize(),
             success: function(data){
             	mostrarMensaje(data.MENSAJE);

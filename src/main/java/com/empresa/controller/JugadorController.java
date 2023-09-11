@@ -10,25 +10,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.empresa.entity.Alumno;
+import com.empresa.entity.Jugador;
 import com.empresa.service.AlumnoService;
+import com.empresa.service.JugadorService;
 
 @Controller
-public class AlumnoController {
+public class JugadorController {
 
 	@Autowired
-	private AlumnoService service;
+	private JugadorService service;
 	
-	@GetMapping(value = "/verAlumno" )
+	@GetMapping(value = "/verJugador" )
 	public String ver() {
-		return "registraAlumno";
+		return "registraJugador";
 	}
 	
-
-	@PostMapping("/registraAlumno")
+	@PostMapping("/registraJugador")
 	@ResponseBody
-	public Map<?, ?> registra(Alumno obj){
+	public Map<?, ?> registra(Jugador obj){
 		HashMap<String, String> map = new HashMap<String, String>();
-		Alumno objSalida = service.insertaAlumno(obj);
+		Jugador objSalida = service.insertaJugador(obj);
 		if (objSalida == null) {
 			map.put("MENSAJE", "Error en el registro");
 		}else {
@@ -36,4 +37,5 @@ public class AlumnoController {
 		}
 		return map;
 	}
+		
 }

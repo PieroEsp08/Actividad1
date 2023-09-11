@@ -15,7 +15,7 @@
 <body>
 
 <div class="container">
-<h1>Registra Alumno</h1>
+<h1>Registra Jugador</h1>
 
 	<form id="id_form">
 	<div class="row" style="margin-top: 5%">
@@ -29,30 +29,40 @@
 			</div>
 			<div class="form-group  col-sm-6">
 				<div class="col-sm-3">
-					<label class="control-label" for="id_dni">DNI</label>
+					<label class="control-label" for="id_alias">Alias</label>
 				</div>
 				<div class="col-sm-6">
-					<input class="form-control" type="text" id="id_dni" name="dni" placeholder="Ingrese el dni" maxlength="8">
+					<input class="form-control" type="text" id="id_alias" name="alias" placeholder="Ingrese el alias" maxlength="8">
 		 		</div>
 			</div>
 		</div>
 		<div class="row" style="margin-top: 2%">
 			<div class="form-group col-sm-6">
 				<div class="col-sm-3">
-					<label class="control-label" for="id_correo">Correo</label>
+					<label class="control-label" for="id_pais">Pais</label>
 				</div>
 				<div class="col-sm-6">
-					<input class="form-control" type="text" id="id_correo" name="correo" placeholder="Ingrese el correo" maxlength="100">
+					<input class="form-control" type="text" id="id_pais" name="pais" placeholder="Ingrese el pais" maxlength="100">
 				</div>
 			</div>
-			<div class="form-group  col-sm-6">
-				<div class="col-sm-4">
-					<label class="control-label" for="id_fecha">Fecha de Nacimiento</label>
+			<div class="form-group col-sm-6">
+				<div class="col-sm-3">
+					<label class="control-label" for="id_juego">Juego</label>
 				</div>
 				<div class="col-sm-6">
-					<input class="form-control" type="date" id="id_fecha" name="fechaNacimiento" placeholder="Ingrese la fecha" maxlength="100">
-		 		</div>
+					<input class="form-control" type="text" id="id_juego" name="juego" placeholder="Ingrese el juego" maxlength="100">
+				</div>
 			</div>
+			<div class="form-group col-sm-6">
+				<div class="col-sm-3">
+					<label class="control-label" for="id_experiencia">Experiencia</label>
+				</div>
+				<div class="col-sm-6">
+					<input class="form-control" type="text" id="id_experiencia" name="experiencia" placeholder="Ingrese experiencia" maxlength="100">
+				</div>
+			</div>
+			
+			
 		</div>
 		
 		<div class="row" style="margin-top: 5%">	
@@ -74,7 +84,7 @@ $("#id_registrar").click(function (){
 	if (validator.isValid()){
 		$.ajax({
     		type: "POST",
-            url: "registraAlumno", 
+            url: "registraJugador", 
             data: $('#id_form').serialize(),
             success: function(data){
             	mostrarMensaje(data.MENSAJE);
